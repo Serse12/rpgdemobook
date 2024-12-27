@@ -6,3 +6,7 @@ TILE_SIZE = 50
 
 FIRST_TREE = "./assets/tiles/tree.png"
 HOUSE_TILE = "./FirstMap/img/housetile.png"
+
+TILE_LAYER = 0
+OBJ_LAYER = 3
+PLAYER_LAYER = 2

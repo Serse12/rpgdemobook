@@ -11,6 +11,11 @@ class GenericMap:
         self.width = width
         self.height = height
         self.screen = screen
+        self.all_sprites = pygame.sprite.Group()
+        self.mapobjects = pygame.sprite.Group()
+        self.maptiles = pygame.sprite.Group()
+        self.player_group = pygame.sprite.Group()
+        self.layerupdates = pygame.sprite.LayeredUpdates()
 
         self.grid = [[0 for _ in range(self.width)] for _ in range(self.height)]
 
@@ -32,15 +37,19 @@ class GenericMap:
         self.wallpaper = pygame.transform.scale(self.wallpaper, (WINDOW_WIDTH, WINDOW_HEIGHT))
         self.screen.blit(self.wallpaper, (0, 0))
 
-    def draw_playable_map(self):
+    def load_playable_map(self):
         return
 
-    def draw_players_and_npc(self):
+    def load_players_and_npc(self):
         return
+
+    def load_all(self):
+        self.load_playable_map()
+        self.load_players_and_npc()
 
     def draw(self):
         self.draw_wallpaper()
-        self.draw_playable_map()
-        self.draw_players_and_npc()
+        self.layerupdates.draw(self.screen)
+        #self.maptiles.draw(self.screen)
 
 

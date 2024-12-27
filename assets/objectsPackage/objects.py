@@ -1,16 +1,14 @@
 import pygame
+from pygame import Vector2
+
+from config import *
 
 
 class GenericObject(pygame.sprite.Sprite):
+    rect: pygame.Rect = None
+    collider_rect: pygame.Rect = None
 
-    def __init__(self, x, y, url):
-        pygame.sprite.Sprite.__init__(self)
-        self.x = x
-        self.y = y
-        self.obj_image = pygame.image.load(url)
-
-    def draw_obj_image(self, screen):
-        return
-
-    def draw(self, screen):
-        self.draw_obj_image(screen)
+    def __init__(self, x, y):
+        self.width = TILE_SIZE
+        self.height = TILE_SIZE
+        super().__init__()
