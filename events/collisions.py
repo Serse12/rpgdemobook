@@ -1,8 +1,14 @@
 from assets.players.player import Player
 from assets.objectsPackage.objects import GenericObject
-from assets.objectsPackage.tree import Tree
+from assets.objectsPackage.objects import Tree
 
 import pygame
+
+
+def custom_collider_point_using_collider_rect(point, rect: pygame.Rect):
+    if not isinstance(point, tuple) or len(point) != 2:
+        raise ValueError("The argument must be a tuple with exactly two items.")
+    return rect.collidepoint(point)
 
 
 def custom_collider_using_collider_rect(x, y):
